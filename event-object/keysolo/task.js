@@ -17,6 +17,17 @@ class Game {
   }
 
   registerEvents() {
+   let analyzePressedSymbol = (e) => {
+     let pressedSymbol = e.key;
+      if (pressedSymbol.toLowerCase() === this.currentSymbol.textContent.toLowerCase()) {
+        this.success();
+      } else {
+        this.fail();
+      }
+    }
+ 
+    document.addEventListener('keydown', analyzePressedSymbol);
+    
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -92,3 +103,4 @@ class Game {
 
 new Game(document.getElementById('game'))
 
+document.addEventListener('keydown', console.log('press'));
